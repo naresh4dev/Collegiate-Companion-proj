@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COLLEGIATE COMPANION</title>
+    <!--Tailwind css cdn link-->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <!--Responsive navbar-->
+    <nav class="bg-purple-300 p-3 flex items-center justify-between shadow-xl sticky top-0 z-10">
+        <h1 class="text-2xl">COLLEGIATE COMPANION</h1>
+
+        <svg id="menuicon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="w-6 h-6 md:hidden">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+
+        <div>
+            <ul class="flex gap-5 text-gray-600 hidden md:flex">
+                <li>
+                    <a class="hover:underline  hover:text-black" href="/"> Home</a>
+                </li>
+                <li>
+                    <a class="hover:underline  hover:text-black" href="/events">Events</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!--side navbar-->
+    <section id="sidenav" class=" bg-purple-300 fixed z-20 top-0 transition-all duration-1000" style="width: 50%; height: 100vh; right: -50%;">
+        <div class="text-right p-5">
+            <h1 id="closenav" class="inline cursor-pointer font-extrabold">X</h1>
+        </div>
+        <ul class="flex flex-col items-center gap-10 text-gray-600 hidden md:flex">
+            <li>
+                <a class="hover:underline  hover:text-black" href="#"> Home</a>
+            </li>
+            <li>
+                <a class="hover:underline  hover:text-black" href="/events">Events</a>
+            </li>
+            <li>
+                <a class="hover:underline hover:text-black" href="/signup">signup</a>
+            </li>
+        </ul>
+    </section>
+    <!--Header Section-->
+    <section class="bg-purple-400 p-4 md:p-10  flex justify-center">
+        <div>
+            <p class="font-bold">From Music To Movies,We've Got Events To Suit Every Taste</p>
+            <h2 class="font-bold text-3xl md:text-4xl mb-5"> To Explore The World of Events</h2>
+            <div>
+                <a class="bg-black rounded p-3 text-2xl text-white hover:underline" href="/login">Login</a>
+                    <a class="bg-black rounded p-3 text-2xl text-white hover:underline" href="/signup">Sign Up</a>
+            </div>
+            <p class="mt-5">100+ events | 700+ Users </p>
+        </div>
+        <div class="hidden md:block p-5">
+            <img src="eventspic.jpeg" alt="event picture" class="w-90">
+        </div>
+    </section>
+    
+    <!--Best seller-->
+    <section class="p-4 text-center">
+        <h1 class="font-bold mt-5 text-3xl">UPCOMING EVENTS</h1>
+        <div class="grid grid-cols-2 md:grid-cols-4 mt-5 gap-5">
+            <div>
+               <a href="events.html"><img src="event1.jpg" class=" inline hover:shadow-xl hover:translate-y-2"  alt="DJ">
+                <h1>DJ Events</h1></a>
+            </div>
+            <div>
+                <a href="events.html">   <img src="event2.jpg" class=" inline hover:shadow-xl hover:translate-y-2" alt="FUN EVENTS">
+                <h1>Fun Events</h1></a>
+            </div>
+            <div>
+                <a href="events.html">  <img src="event3.jpg" class=" inline hover:shadow-xl hover:translate-y-2" alt="SING">
+                <h1>Singing Events</h1></a>
+            </div>
+            <div>
+                <a href="events.html">   <img src="event4.jpg" class=" inline hover:shadow-xl hover:translate-y-2" alt="FREESTYLE">
+                <h1>Freestyle Dance</h1></a>
+            </div>
+        </div>
+    </section>
+     <!--video about-->
+     <h1 class="video about font-bolder text-3xl flex justify-center" >THIS VIDEO ABOUT ENGLISH DEBATE COMPETITION</h1>
+    <!--video-->
+    <div class="video">
+        <video controls autoplay muted loop src="video.mp4">
+            <source src="video.mp4">
+            <source src="video.WebM">
+            This browser does not support audio 
+        </video>
+    </div>
+    <!--About section-->
+    <section>
+        <h1 class="text-3xl font-bold mt-5 text-center">About Events</h1>
+        <div class="flex justify-center flex-col gap-5 text-white m-5">
+            <div class="bg-purple-400 p-5 container">
+                <p class="font-bold text-black">DJ EVENTS :</p>
+                <p>DJ events are electrifying gatherings where music enthusiasts converge to experience the infectious beats and rhythms spun by talented disc jockeys. These events transcend mere entertainment, serving as immersive experiences that pulsate with energy and excitement. DJs curate seamless mixes across various genres, from pulsating EDM to nostalgic classics, creating an electrifying atmosphere that captivates audiences. Attendees are transported on a sonic journey, losing themselves in the euphoria of the music and the collective vibe of the crowd. Whether in intimate venues or massive festivals, DJ events foster a sense of unity and connection, where individuals come together to celebrate the universal language of music.</p>
+            </div>
+            <div class="bg-purple-400 p-5 container">
+                <p class="font-bold text-black">FUN EVENTS :</p>
+                <p>Fun events encompass a diverse array of activities designed to entertain and engage participants of all ages. From exhilarating outdoor adventures to lighthearted indoor gatherings, these events offer something for everyone. Attendees can indulge in thrilling games, enjoy live performances, sample delicious food and drinks, and connect with others in a festive atmosphere. Whether it's a carnival, fair, or themed party, fun events foster a sense of joy and camaraderie, creating lasting memories and moments of laughter. They provide an opportunity for people to unwind, let loose, and embrace the spirit of celebration, making them cherished highlights on the social calendar.</p>
+                
+            </div>
+            <div class="bg-purple-400 p-5 container">
+                <p class="font-bold text-black">SINGING EVENTS :</p>
+                <p>Song events are dynamic gatherings that celebrate the universal language of music through captivating performances and engaging experiences. From intimate acoustic sessions to grand-scale concerts, these events showcase a diverse range of musical talents and genres, captivating audiences with their melodies and lyrics. Attendees immerse themselves in the transformative power of music, experiencing a myriad of emotions as they sing along to familiar tunes and discover new favorites. Song events foster connections and shared experiences, uniting people from all walks of life through their love of music. They create unforgettable moments and leave a lasting impact on both performers and audiences alike.</p>
+               
+            </div>
+            <div class="bg-purple-400 p-5 container">
+                <p class="font-bold text-black">FREESTYLE DANCING EVENTS :</p>
+                <p>Freestyle dance events are vibrant gatherings where dancers express themselves through spontaneous movement and creativity. Participants unleash their passion and energy on the dance floor, improvising to the rhythm of diverse music styles, from hip-hop and funk to electronic beats. These events are a celebration of individuality and self-expression, where dancers showcase their unique styles and skills in a supportive and inclusive environment. From cyphers to battles, freestyle dance events foster camaraderie and collaboration among dancers, inspiring innovation and pushing the boundaries of movement. They are exhilarating spectacles that captivate audiences and leave a lasting impression with their electrifying performances and infectious energy.</p>
+                
+            </div>
+        </div>
+    </section>
+    <!--Footer-->
+    <section class="bg-purple-300 p-10 flex flex-col gap-5">
+        <h1 class="text-4xl font-bold">COLLEGIATE COMPANION</h1>
+        <p>"Collegiate Companion" - Empowering students to thrive academically and socially.</p>
+        <p>Stay updated with the latest campus news, events, and resources. Join our community today!</p>
+        <p>@ 2021 COLLEGIATE COMPANION.com </p>
+    </section>
+    <script src="index.html"></script>
+</body>
+
+</html>

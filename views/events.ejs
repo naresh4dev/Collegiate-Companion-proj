@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <!--Tailwind css cdn link-->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <!--Responsive navbar-->
+    <nav class="bg-purple-300 p-3 flex items-center justify-between shadow-xl sticky top-0 z-10">
+        <h1 class="text-2xl">COLLEGIATE COMPANION</h1>
+
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="w-6 h-6 md:hidden">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+
+        <div>
+            <ul class="flex gap-5 text-gray-600 hidden md:flex">
+                <li>
+                    <a class="hover:underline  hover:text-black" href="/"> Home</a>
+                </li>
+                <li>
+                    <a class="hover:underline  hover:text-black" href="/events">Events</a>
+                </li>
+                <li>
+                    <a class="hover:underline  hover:text-black" href="/login">Login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!--image categories-->
+    <section class="p-4 text-center">
+        <h1 class="font-bold mt-5 text-3xl">Our Events</h1>
+        <div>
+            <button class="bg-green-400 rounded-md p-4 mt-10 hover:scale-110" onclick="handleClick()">Add Your Event</button>
+        </div>
+        <div class="flex  hidden justify-center w-2/3" id="eventRegistration">
+            <form action="/registerEvent" method="post" enctype="application/x-www-form-urlencoded" class="flex mt-10 flex-col justify-center gap-4 ">
+                <input type="text" name="name" placeholder="Event Name"/>
+                <input type="text" name="url" placeholder="Event Image URL"/>
+                <input type="text" name="date" placeholder="Event Date"/>
+                <input type="text" name="department" placeholder="Department"/>
+                <button type="submit" class="bg-blue-400 rounded-md p-4 mt-10 hover:scale-110">Upload Event</button>
+            </form>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 mt-5 gap-5">
+            <% locals.eventsList.forEach(event=>{ %>
+                <div class="flex flex-col">
+                    <div>
+                        
+                            <img src="<%= event.eventUrl%>" class=" inline hover:shadow-xl hover:translate-y-2" alt="concert">
+                            <div class="flex justify-between p-4 items-center w-full">
+                                <h1><%= event.eventName%></h1>
+                            <button class="bg-yellow-400  p-4 rounded-md btn-warning hover:scale-90" onclick="handleDetails('<%= event.key%>')">Show Details</button>
+                            </div>
+                    </div>
+                    <div id="<%=event.key%>" class="hidden">
+                        <h3>Date : <%= event.eventDate%></h3>
+                        <h3>Department : <%= event.eventDepartment%></h3>
+                        <form action="/enrollEvent" method="post" enctype="application/x-www-form-urlencoded">
+                            <input type="hidden" name="id" value="<%=event.key%>">
+                            <button class="bg-blue-400 p-4 rounded-md" type="submit">Register for this Event</button>
+                        </form>
+                        <% if(event.attendees.length > 0) { %>
+                            <table class="p-4 w-full mt-4 ">
+                                <thead>
+                                    <th>Email</th>
+                                    <th>Status</th>
+                                </thead>
+                                <tbody>
+                                    <% event.attendees.forEach(email=>{ %>
+                                    <tr>
+                                        <td><%= email %></td>
+                                    <td>Enrolled</td>
+                                </tr>
+                                    <% })%>
+                                </tbody>
+                            </table>    
+                        <% } else {%>
+                            <p>None Enrolled Yet</p>
+                        <%}%>        
+                    </div>
+                </div>
+
+            <% }) %>
+        </div>
+         <!--video about-->
+         <h1 class="video abouts font-bolder text-3xl">THIS VIDEO ABOUT AERONAUTICS WORKSHOP </h1>
+        <!--VIDEO-->
+        <div class="video justify-center flex p-3">
+            <video controls autoplay muted loop src="ad.mp4">
+                <source src="ad.mp4">
+                <source src="video.WebM">
+                This browser does not support audio 
+            </video>
+        </div>
+        <!--Footer-->
+        <section class="bg-purple-300 p-10 flex flex-col gap-5">
+            <h1 class="text-4xl font-bold">COLLEGIATE COMPANION</h1>
+            <p>"Collegiate Companion" - Empowering students to thrive academically and socially.</p>
+        <p>Stay updated with the latest campus news, events, and resources. Join our community today!</p>
+            <p>@ 2021 COLLEGIATE COMPANION.com </p>
+        </section>
+    </section>
+    <script>
+        function handleClick() {
+            const e = document.getElementById('eventRegistration');
+            e.classList.toggle("hidden");
+        }
+        function handleDetails(id) {
+            const e = document.getElementById(id);
+            e.classList.toggle("hidden");
+        }
+    </script>
+</body>
+
+</html>
