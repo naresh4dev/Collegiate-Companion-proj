@@ -124,7 +124,7 @@ app.post("/enrollEvent",(req,res)=>{
     onAuthStateChanged(auth, async (user)=>{
         if(user) {
             try {
-                const result = await enrollEvent(req.body.id,req.user.email);
+                const result = await enrollEvent(req.body.id,user.email);
                 if(result){
                     res.send("Enrolled Successfully");
                 } else {
