@@ -84,14 +84,19 @@ exports.getOneEvent = async (ID)=>{
     try {
         const eventDbRef = ref(db, `events`);
         const results = await get(child(eventDbRef, `/${ID}`));
-        if(results.exists()) {
-            const eventDetail = results.val();
-            return eventDetail
-        } else {
-            return false
-        }
+        return results.exists() ? results.val() : null
     } catch (err) {
         console.log("Error in getting events",err);
+        return false
+    }
+}
+
+exports.getUser = async (id) =>{
+    try {
+        const dbRef = ref(db);
+        const snapshot = await get(child(dbRef,`users/${id}`));
+        return snapshot.exists() ? snapshot.val() : null
+    } catch (err) {
         return false
     }
 }

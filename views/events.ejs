@@ -19,17 +19,30 @@
             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
         </svg>
 
-        <div>
-            <ul class="flex gap-5 text-gray-600 hidden md:flex">
+        <div class="static">
+            <ul class="flex gap-5 text-gray-600  md:flex">
                 <li>
                     <a class="hover:underline  hover:text-black" href="/"> Home</a>
                 </li>
                 <li>
                     <a class="hover:underline  hover:text-black" href="/events">Events</a>
                 </li>
-                <li>
-                    <a class="hover:underline  hover:text-black" href="/login">Login</a>
-                </li>
+                <% if (locals.userStatus !==null) {%>
+                    <li >
+                        <button class="hover:underline  hover:text-black" onclick="handleProfileClick()">Profile</button>
+                        <div id="profileShow" class="bg-gray-200 hidden right-2 p-4 top-16 absolute">
+                            <p> Unique ID : <%= locals.userStatus.id %> </p>
+                            <p> Full Name : <%= locals.userStatus.userData.username%> </p>
+                            <p> Email : <%= locals.userStatus.userData.email%> </p>
+                            <p> Department : <%= locals.userStatus.userData.department%> </p>
+                        </div>
+                    </li>
+                   
+                <%} else {%>
+                    <li>
+                        <a class="hover:underline  hover:text-black" href="/login">Login</a>
+                    </li>
+                    <%}%>
             </ul>
         </div>
     </nav>
@@ -108,6 +121,9 @@
         </section>
     </section>
     <script>
+        function handleProfileClick() {
+            document.getElementById("profileShow").classList.toggle("hidden")
+        }
         function handleClick() {
             const e = document.getElementById('eventRegistration');
             e.classList.toggle("hidden");
