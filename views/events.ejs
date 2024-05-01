@@ -80,7 +80,7 @@
                             <input type="hidden" name="id" value="<%=event.key%>">
                             <button class="bg-blue-400 p-4 rounded-md" type="submit">Register for this Event</button>
                         </form>
-                        <% if(event.attendees.length > 0) { %>
+                        <% if(event.attendees.length > 0 && locals.userStatus.userData.email=="collegecompanion001@gmail.com") { %>
                             <table class="p-4 w-full mt-4 ">
                                 <thead>
                                     <th>Email</th>
